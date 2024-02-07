@@ -1,14 +1,14 @@
 import React from "react";
-import "./SignInScreen.css";
+import "./SignupScreen.css";
 import "../../App.css";
 import Nav from "../../Nav";
 
-function SignInScreen() {
+function SignupScreen() {
   return (
-    <div className="signInScreen">
+    <div className="signupScreen">
       <Nav />
     </div>
   );
 }
 
-export default SignInScreen;
+export default SignupScreen;
