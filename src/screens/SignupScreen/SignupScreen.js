@@ -2,10 +2,13 @@ import React, { useRef } from "react";
 import "./SignupScreen.css";
 import "../../App.css";
 import { auth } from "../../firebase";
+import { useDispatch } from "react-redux";
+import { login } from "../../state/userSlice";
 
 function SignupScreen() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const dispatch = useDispatch();
 
   const register = (e) => {
     e.preventDefault();
@@ -31,7 +34,14 @@ function SignupScreen() {
         emailRef.current.value,
         passwordRef.current.value
       )
-      .then((authUser) => console.log(authUser))
+      .then((userAuth) => {
+        return dispatch(
+          login({
+            uid: userAuth.user.multiFactor.user.uid,
+            email: userAuth.user.multiFactor.user.email,
+          })
+        );
+      })
       .catch((e) => alert(e.message));
   };
   return (
