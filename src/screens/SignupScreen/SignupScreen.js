@@ -4,11 +4,13 @@ import "../../App.css";
 import { auth } from "../../firebase";
 import { useDispatch } from "react-redux";
 import { login } from "../../state/userSlice";
+import { useNavigate } from "react-router-dom";
 
 function SignupScreen() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const register = (e) => {
     e.preventDefault();
@@ -35,12 +37,13 @@ function SignupScreen() {
         passwordRef.current.value
       )
       .then((userAuth) => {
-        return dispatch(
+        dispatch(
           login({
             uid: userAuth.user.multiFactor.user.uid,
             email: userAuth.user.multiFactor.user.email,
           })
         );
+        return navigate("/");
       })
       .catch((e) => alert(e.message));
   };
