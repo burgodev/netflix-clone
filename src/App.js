@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./state/userSlice";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 
-// TODO: Stopped at 2:57:00
+// TODO: Stopped at 3:57:00
 
 function App() {
   const user = useSelector(selectUser);
