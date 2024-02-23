@@ -1,5 +1,6 @@
 # netflix-clone
-Netflix clone using React, Redux, Firebase and Stripe
+Netflix clone using React, Redux, Firebase and Stripe.
+
 Based on Sonny Sangha work. https://www.youtube.com/watch?v=HW5roUF2RLg&ab_channel=SonnySangha
 
 # Start App
